@@ -1,9 +1,17 @@
-import React from 'react'
+// Higher order component - meaning other components will be wrapped with it.
 
-const Provider = () => {
+"use client";
+
+import React from "react";
+
+import { SessionProvider } from "next-auth/react";
+
+const Provider = ({ children, session }) => {
   return (
-    <div>Provider</div>
+    <SessionProvider session={session}>
+      {children}
+    </SessionProvider>
   )
-}
+};
 
-export default Provider
+export default Provider;
